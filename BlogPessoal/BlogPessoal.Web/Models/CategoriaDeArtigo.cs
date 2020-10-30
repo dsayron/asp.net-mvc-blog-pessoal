@@ -9,7 +9,7 @@ namespace BlogPessoal.Web.Models
     public class CategoriaDeArtigo
     {
 
-        public int Id { get; set; }
+        public int Id { get; set; } 
         
         [Required]
         public String Nome { get; set; }
@@ -17,4 +17,5 @@ namespace BlogPessoal.Web.Models
 
 
     }
+
 }

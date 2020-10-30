@@ -9,7 +9,7 @@ namespace BlogPessoal.Web.Controllers
 {
     public class CategoriasDeArtigoController : Controller
 	{
-		private BlogPessoalContexto _ctx = new BlogPessoalContexto();
+		private readonly BlogPessoalContexto _ctx = new BlogPessoalContexto();
 		public ActionResult Index()
 		{
 
@@ -66,7 +66,31 @@ namespace BlogPessoal.Web.Controllers
 			return View(categoria); //se deu algo errado, View, passando a categoria.
 		}
 
+        public ActionResult Find(int? id)
+		{
+			if (id == null)
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			var categoria = _ctx.CategoriasDeArtigo.Find(id);
+			if (categoria == null)
+				return HttpNotFound();
+			return View(categoria);
+			//Mas se passou o id, e o banco não achou nenhuma categoria, então vamos retornar um actionResult HttpNotFound()
 
+			//Se encontrou, vamos retornar uma view de Delete, com as informações da categoria.
+
+		}
+
+		[HttpPost]
+		public ActionResult Delete(int id)
+		{
+			var categoria = _ctx.CategoriasDeArtigo.Find(id);
+			_ctx.CategoriasDeArtigo.Remove(categoria);
+			_ctx.SaveChanges();
+
+			//se tudo deu certo... mandaremos o usuário para "Index"
+			return RedirectToAction("Index");
+
+		}
 
 
 	}
