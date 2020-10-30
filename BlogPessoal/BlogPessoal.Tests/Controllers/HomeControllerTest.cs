@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using BlogPessoal.Web.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BlogPessoal.Web;
-using BlogPessoal.Web.Controllers;
+using System.Web.Mvc;
 
 namespace BlogPessoal.Tests.Controllers
 {

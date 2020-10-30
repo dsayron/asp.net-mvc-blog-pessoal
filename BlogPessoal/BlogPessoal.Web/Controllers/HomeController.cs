@@ -13,5 +13,15 @@ namespace BlogPessoal.Web.Controllers
         {
             return View();
         }
+
+        public ViewResult Contact()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ViewResult About()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
