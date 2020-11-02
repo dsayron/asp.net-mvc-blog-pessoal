@@ -99,6 +99,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="CategoriaDeArtigoTest.cs" />
+    <Compile Include="ArtigoTest.cs" />
+    <Compile Include="AutorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

@@ -1,17 +1,17 @@
-﻿using System.Linq;
-using BlogPessoal.Web.Data.Contexto;
+﻿using BlogPessoal.Web.Data.Contexto;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace BlogPessoal.Tests
 {
     [TestClass]
-    public class CategoriaDeArtigoTest
+    public class ArtigoTest
     {
         [TestMethod]
-        public void Consultar_categoria_artigo_com_sucesso()
+        public void ConsultarArtigoComSucesso()
         {
             var ctx = new BlogPessoalContexto();
-            var obj = ctx.CategoriasDeArtigo.FirstOrDefault();  //o primeiro registro ou nulo.
+            var obj = ctx.Artigo.FirstOrDefault();  //o primeiro registro ou nulo.
 
             Assert.IsNotNull(obj);
             // Assert é uma validação

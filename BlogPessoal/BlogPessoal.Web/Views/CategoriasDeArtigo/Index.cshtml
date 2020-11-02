@@ -1,0 +1,31 @@
+﻿@using BlogPessoal.Web.Models
+@model IEnumerable<CategoriaDeArtigo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDoBlog.cshtml";
+}
+
+<h2>Categoria De Artigo</h2>
+
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+    </tr>
+
+    <!-- Usar o razor para carregar as categorias: -->
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nome</td>
+            <td>@item.Descricao</td>
+
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Excluir", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

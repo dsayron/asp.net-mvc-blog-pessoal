@@ -130,17 +130,24 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArtigoController.cs" />
+    <Compile Include="Controllers\AutorController.cs" />
     <Compile Include="Controllers\CategoriasDeArtigoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\Contexto\BlogPessoalContexto.cs" />
+    <Compile Include="Data\Contexto\Mapeamento\ArtigoMap.cs" />
+    <Compile Include="Data\Contexto\Mapeamento\AutorMap.cs" />
     <Compile Include="Data\Contexto\Mapeamento\CategoriaDeArtigoMap.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Artigo.cs" />
+    <Compile Include="Models\Autor.cs" />
     <Compile Include="Models\CategoriaDeArtigo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -180,10 +187,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutDoBlog.cshtml" />
+    <Content Include="Views\CategoriasDeArtigo\Index.cshtml" />
+    <Content Include="Views\CategoriasDeArtigo\Create.cshtml" />
+    <Content Include="Views\CategoriasDeArtigo\Edit.cshtml" />
+    <Content Include="Views\CategoriasDeArtigo\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\CategoriasDeArtigo\" />
+    <Folder Include="Views\Artigo\" />
+    <Folder Include="Views\Autor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
