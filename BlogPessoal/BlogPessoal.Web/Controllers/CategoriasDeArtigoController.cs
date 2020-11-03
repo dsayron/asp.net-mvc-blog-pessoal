@@ -1,5 +1,6 @@
 ﻿using BlogPessoal.Web.Data.Contexto;
 using BlogPessoal.Web.Models;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -43,14 +44,13 @@ namespace BlogPessoal.Web.Controllers
             return View(categoria);
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
 
             //caso seja informado o id:
             var categoria = _ctx.CategoriasDeArtigo.Find(id);
-
             if (categoria == null)
                 return HttpNotFound();
 
@@ -72,7 +72,7 @@ namespace BlogPessoal.Web.Controllers
             return View(categoria);
         }
 
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -85,7 +85,7 @@ namespace BlogPessoal.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
             var categoria = _ctx.CategoriasDeArtigo.Find(id);
             _ctx.CategoriasDeArtigo.Remove(categoria);

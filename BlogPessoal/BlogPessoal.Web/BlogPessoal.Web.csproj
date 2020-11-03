@@ -130,8 +130,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ArtigoController.cs" />
-    <Compile Include="Controllers\AutorController.cs" />
+    <Compile Include="Controllers\ArtigosController.cs" />
+    <Compile Include="Controllers\AutoresController.cs" />
+    <Compile Include="Controllers\AutorsController.cs" />
     <Compile Include="Controllers\CategoriasDeArtigoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\Contexto\BlogPessoalContexto.cs" />
@@ -192,10 +193,18 @@
     <Content Include="Views\CategoriasDeArtigo\Create.cshtml" />
     <Content Include="Views\CategoriasDeArtigo\Edit.cshtml" />
     <Content Include="Views\CategoriasDeArtigo\Delete.cshtml" />
+    <Content Include="Views\Artigo\Index.cshtml" />
+    <Content Include="Views\Artigo\Create.cshtml" />
+    <Content Include="Views\Artigo\Edit.cshtml" />
+    <Content Include="Views\Artigo\Delete.cshtml" />
+    <Content Include="Views\Autors\Create.cshtml" />
+    <Content Include="Views\Autors\Delete.cshtml" />
+    <Content Include="Views\Autors\Details.cshtml" />
+    <Content Include="Views\Autors\Edit.cshtml" />
+    <Content Include="Views\Autors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Artigo\" />
     <Folder Include="Views\Autor\" />
   </ItemGroup>
   <ItemGroup>

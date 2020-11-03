@@ -1,25 +1,23 @@
 ﻿using BlogPessoal.Web.Data.Contexto;
 using BlogPessoal.Web.Models;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BlogPessoal.Web.Controllers
 {
-    public class AutorController : Controller
+    public class AutoresController : Controller
     {
 
         private BlogPessoalContexto _ctx = new BlogPessoalContexto();
 
-        // GET: Autor
+        // GET: Autores
         public ActionResult Index()
         {
             //ordenar por nome e adicionar a uma lista
-            var autor = _ctx.Autor
+            var autor = _ctx.Autores
                 .OrderBy(t => t.Nome)
                 .ToList();
             return View(autor);
@@ -36,7 +34,7 @@ namespace BlogPessoal.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _ctx.Autor.Add(autor);
+                _ctx.Autores.Add(autor);
                 _ctx.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -44,13 +42,13 @@ namespace BlogPessoal.Web.Controllers
             return View(autor);
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
 
             //caso seja informado o id:
-            var autor = _ctx.Autor.Find(id);
+            var autor = _ctx.Autores.Find(id);
 
             if (autor == null)
                 return HttpNotFound();
@@ -73,12 +71,12 @@ namespace BlogPessoal.Web.Controllers
             return View(autor);
         }
 
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var autor = _ctx.Autor.Find(id);
+            var autor = _ctx.Autores.Find(id);
             if (autor == null)
                 return HttpNotFound();
 
@@ -86,10 +84,10 @@ namespace BlogPessoal.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            var autor = _ctx.Autor.Find(id);
-            _ctx.Autor.Remove(autor);
+            var autor = _ctx.Autores.Find(id);
+            _ctx.Autores.Remove(autor);
             _ctx.SaveChanges();
 
             //se tudo der certo, mandaremos o usuáro para index

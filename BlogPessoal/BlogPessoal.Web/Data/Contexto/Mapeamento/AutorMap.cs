@@ -8,11 +8,13 @@ namespace BlogPessoal.Web.Data.Contexto.Mapeamento
         public AutorMap()
         {
             ToTable("autor", "dbo");
-            HasKey(t => t.Id);
-            Property(x => x.Nome).IsRequired().HasMaxLength(150).HasColumnName("nome");
-            Property(x => x.Email).IsRequired().HasMaxLength(150).HasColumnName("email");
-            Property(x => x.Senha).IsRequired().HasMaxLength(50).HasColumnName("senha");
-            Property(x => x.Administrador).IsRequired().HasColumnName("administrador");
+            HasKey(x => x.Id);
+
+            //Só vai ter HasColumnName se o nome do campo no banco for diferente do nome da propriedade da Classe. Não é case-sensitive!
+            Property(x => x.Nome).IsRequired().HasMaxLength(150);   //NÃO TEM .HasColumnName("nome")
+            Property(x => x.Email).IsRequired().HasMaxLength(150);   //NÃO TEM .HasColumnName("email")
+            Property(x => x.Senha).IsRequired().HasMaxLength(50);   //NÃO TEM .HasColumnName("senha")
+            Property(x => x.Administrador).IsRequired();   //NÃO TEM .HasColumnName("administrador")
             Property(x => x.DataDeCadastro).IsRequired().HasColumnName("data_cadastro");
         }
     }

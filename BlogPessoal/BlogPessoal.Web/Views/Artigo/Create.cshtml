@@ -1,0 +1,65 @@
+﻿@using BlogPessoal.Web.Models
+@model Artigo
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Adicionar Artigo</h2>
+<div>
+    <!-- Texto "Adicionar Novo", "Create" (que é o nome da Action) -->
+    @Html.ActionLink("Adicionar novo", "Create")
+</div>
+
+{
+
+<div>
+    @Html.ValidationSummary(true, "Problemas encontrados.", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Titulo)
+        <div>
+            @Html.EditorFor(model => model.Titulo)
+            @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Conteudo)
+        <div>
+            @Html.TextAreaFor(model => model.Conteudo)
+            @Html.ValidationMessageFor(model => model.Conteudo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Data_Publicacao)
+        <div>
+            @Html.TextAreaFor(model => model.Data_Publicacao)
+            @Html.ValidationMessageFor(model => model.Data_Publicacao, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Autor_Id)
+        <div>
+            @Html.TextAreaFor(model => model.Autor_Id)
+            @Html.ValidationMessageFor(model => model.Autor_Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Categoria_Artigo_Id)
+        <div>
+            @Html.TextAreaFor(model => model.Categoria_Artigo_Id)
+            @Html.ValidationMessageFor(model => model.Categoria_Artigo_Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Adicionar" class="btn btn-default">
+    </div>
+</div>
+
+}

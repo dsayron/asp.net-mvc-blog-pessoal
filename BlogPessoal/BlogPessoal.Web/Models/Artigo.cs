@@ -12,17 +12,22 @@ namespace BlogPessoal.Web.Models
 
         [Required]
         public String Conteudo { get; set; }
-        
-        [Required] 
+
+        [Required]
+        [DataType(DataType.Date, ErrorMessage = "Data inválida!")]
         public DateTime Data_Publicacao { get; set; }
 
-        [Required] 
+        [Required]
         public Boolean Removido { get; set; }
 
-        [Required] 
+        [Required]
         public Guid Categoria_Artigo_Id { get; set; }
 
-        [Required] 
+        [Required]
         public Guid Autor_Id { get; set; }
+
+        public virtual CategoriaDeArtigo CategoriaDeArtigo { get; set; }
+        public virtual Autor Autor { get; set; }
+
     }
 }

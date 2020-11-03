@@ -11,7 +11,7 @@ namespace BlogPessoal.Tests
         public void consultar_autor_com_sucesso()
         {
             var ctx = new BlogPessoalContexto();
-            var obj = ctx.Autor.FirstOrDefault(); //o primeiro registro ou nulo
+            var obj = ctx.Autores.FirstOrDefault(); //o primeiro registro ou nulo
 
             Assert.IsNull(obj);
             //assert é uma validação

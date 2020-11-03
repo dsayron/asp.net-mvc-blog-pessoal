@@ -11,7 +11,7 @@ namespace BlogPessoal.Tests
         public void ConsultarArtigoComSucesso()
         {
             var ctx = new BlogPessoalContexto();
-            var obj = ctx.Artigo.FirstOrDefault();  //o primeiro registro ou nulo.
+            var obj = ctx.Artigos.FirstOrDefault();  //o primeiro registro ou nulo.
 
             Assert.IsNotNull(obj);
             // Assert é uma validação

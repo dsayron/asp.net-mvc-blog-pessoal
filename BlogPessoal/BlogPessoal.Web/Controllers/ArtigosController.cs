@@ -1,20 +1,21 @@
 ﻿using BlogPessoal.Web.Data.Contexto;
 using BlogPessoal.Web.Models;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 
 namespace BlogPessoal.Web.Controllers
 {
-    public class ArtigoController : Controller
+    public class ArtigosController : Controller
     {
 
         private BlogPessoalContexto _ctx = new BlogPessoalContexto();
 
-        // GET: Artigo
+        // GET: Artigos
         public ActionResult Index()
         {
             //ordenar por nome e adicionar a uma lista
-            var artigo = _ctx.Artigo
+            var artigo = _ctx.Artigos
                 .OrderBy(t => t.Titulo)
                 .ToList();
             return View(artigo);
@@ -32,20 +33,20 @@ namespace BlogPessoal.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _ctx.Artigo.Add(artigo);
+                _ctx.Artigos.Add(artigo);
                 _ctx.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(artigo);
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
 
             //Caso seja informado o parametro id:
-            var artigo = _ctx.Artigo.Find(id);
+            var artigo = _ctx.Artigos.Find(id);
             if (artigo == null)
                 return HttpNotFound();
 
@@ -64,11 +65,11 @@ namespace BlogPessoal.Web.Controllers
             return View(artigo); //se deu algo errado, View, passando a "artigo".
         }
 
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
-            var artigo = _ctx.Artigo.Find(id);
+            var artigo = _ctx.Artigos.Find(id);
             if (artigo == null)
                 return HttpNotFound();
 
@@ -76,10 +77,10 @@ namespace BlogPessoal.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            var artigo = _ctx.Artigo.Find(id);
-            _ctx.Artigo.Remove(artigo);
+            var artigo = _ctx.Artigos.Find(id);
+            _ctx.Artigos.Remove(artigo);
             _ctx.SaveChanges();
 
             //Se tudo deu certo, mandaremos o usuario para index:

@@ -1,0 +1,41 @@
+﻿@using BlogPessoal.Web.Models
+@model IEnumerable<Artigo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Artigo</h2>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Tídulo</th>
+        <th>Conteúdo</th>
+        <th>Data de Publicação</th>
+        <th>Id do Autor</th>
+        <th>Id da Categoria do Artigo</th>
+        <th>Artigo removido?</th>
+    </tr>
+
+    <!-- Usar o razor para carregar "Nome Da Classe": -->
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Titulo</td>
+        <td>@item.Conteudo</td>
+        <td>@item.Data_Publicacao</td>
+        <td>@item.Autor_Id</td>
+        <td>@item.Categoria_Artigo_Id</td>
+        <td>@item.Removido</td>
+    
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id }) <!-- Essa é a parte da coluna que exibirá o link Editar (e, futuramente, Excluir) -->
+            @Html.ActionLink("Excluir", "Delete", new { id = item.Id }) <!-- Essa é a parte da coluna que exibirá o link excluir -->
+        </td>
+    </tr>
+    }
+
+</table>
