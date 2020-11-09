@@ -1,0 +1,12 @@
+﻿@using BlogPessoal.Web.Models
+@model List<CategoriaDeArtigo>
+
+@*<ul class="nav navbar-nav"> se deixar "nav navbar-nav", vai aparecer tudo em uma linha. Fica feio. Melhor tirar.*@
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.Nome
+        </li>
+    }
+</ul>

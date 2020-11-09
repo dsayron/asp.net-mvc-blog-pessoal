@@ -2,6 +2,7 @@
 using BlogPessoal.Web.Models;
 using System;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 
 namespace BlogPessoal.Web.Controllers
@@ -85,6 +86,20 @@ namespace BlogPessoal.Web.Controllers
 
             //Se tudo deu certo, mandaremos o usuario para index:
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(Guid? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Artigo artigo = _ctx.Artigos.Find(id);
+            if (artigo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(artigo);
         }
     }
 }

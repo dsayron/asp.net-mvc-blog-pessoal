@@ -1,4 +1,5 @@
 ﻿using BlogPessoal.Web.Data.Contexto;
+using BlogPessoal.Web.Filtros;
 using BlogPessoal.Web.Models;
 using System;
 using System.Data.Entity;
@@ -95,6 +96,19 @@ namespace BlogPessoal.Web.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [ExibirArtigosActionFilter]
+        public ActionResult Details(Guid? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CategoriaDeArtigo categoria = _ctx.CategoriasDeArtigo.Find(id);
+            if (categoria == null)
+            {
+                return HttpNotFound();
+            }
+            return View(categoria);
+        }
     }
 }

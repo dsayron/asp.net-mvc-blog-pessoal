@@ -3,7 +3,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutDoBlog.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Categoria De Artigo</h2>
@@ -22,6 +22,7 @@
             <td>@item.Descricao</td>
 
             <td>
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
                 @Html.ActionLink("Editar", "Edit", new { id = item.Id })
                 @Html.ActionLink("Excluir", "Delete", new { id = item.Id })
             </td>

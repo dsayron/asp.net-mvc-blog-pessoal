@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿using BlogPessoal.Web.Filtros;
 using System.Web.Mvc;
 
 namespace BlogPessoal.Web
@@ -8,6 +8,7 @@ namespace BlogPessoal.Web
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new ExibirArtigosActionFilter());
         }
     }
 }

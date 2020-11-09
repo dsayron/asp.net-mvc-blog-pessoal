@@ -31,6 +31,16 @@
         </div>
     </div>
     <div class="container body-content">
+        
+        <div>
+            @* @Html.Action("CategoriasDeArtigo", "Home")  *@
+
+            @* Para conseguir utilizar o RenderAction, precisa colocar dentro de chaves, e não igual ao Action: *@
+            @{
+                Html.RenderAction("CategoriasDeArtigo", "Home");
+            }
+        </div>
+
         @RenderBody()
         <hr />
         <footer>
